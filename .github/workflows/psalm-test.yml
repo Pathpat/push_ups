@@ -8,7 +8,7 @@ jobs:
       container: 
         image: composer:latest
         volumes:
-            -patakias.c/push-ups:/src
+            - patakias.c/push-ups:/src
         steps:
           - name: Running composer install
             run: composer install
