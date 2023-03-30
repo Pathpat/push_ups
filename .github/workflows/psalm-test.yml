@@ -22,9 +22,6 @@ jobs:
 
       - name: Running composer install  
          run: composer install  
-      - name: Download psalm
-         run: composer require --dev vimeo/psalm
-      - name: psalm init
-         run: ./vendor/bin/psalm --init   
+         
       - name: Running psalm 
          run: ./vendor/bin/psalm  
