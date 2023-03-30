@@ -15,9 +15,12 @@ jobs:
 
         volumes:
 
-            - patakias.c/push-ups:/src
+            - ${{ github.workspace }}:/app
 
         steps:
+          - name: Check out the repo
+
+            uses: actions/checkout@v2
 
           - name: Running composer install
 
