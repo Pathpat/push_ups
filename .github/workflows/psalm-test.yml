@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Running composer install  
-         run: composer install
+         run: composer install  --no-interaction --no-progress --prefer-dist
 
       - name: Running psalm 
-         run: ./vendor/bin/psalm
+         run: ./vendor/bin/psalm  --stop-on-error --stop-on-failure
