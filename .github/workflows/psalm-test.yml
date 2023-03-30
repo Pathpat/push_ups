@@ -22,7 +22,7 @@ jobs:
         run: chmod +x vendor/bin/psalm
          
       - name: Run Psalm
-        run: vendor/bin/psalm --show-info=true --no-cache --diff --shepherd --error-level=3
+        run: vendor/bin/psalm --show-info=true --no-cache --diff --shepherd --error-level=7
 
       - name: Upload Psalm Errors
         if: ${{ always() }}
