@@ -21,7 +21,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Running composer install  
-         run: composer install  --no-interaction --no-progress --prefer-dist
-
+         run: composer install  
+      - name: Download psalm
+         run: composer require --dev vimeo/psalm
+      - name: psalm init
+         run: ./vendor/bin/psalm --init   
       - name: Running psalm 
-         run: ./vendor/bin/psalm  --stop-on-error --stop-on-failure
+         run: ./vendor/bin/psalm  
