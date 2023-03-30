@@ -1,31 +1,21 @@
-name: Run a workout test
+name: Hello world
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
+  pull_requests:
+    branches:
+      - 'main'
+
 
 jobs:
-  run-tests:
+  hello:
+    runs-on: ubuntu-latest
 
-      name: Run Psalm tests
+    steps:
+      - name: Hello world
+        run: echo "Hello world"
 
-      runs-on: ubuntu-latest
 
-      container: 
 
-        image: composer:latest
-
-        volumes:
-
-            - ${{ github.workspace }}:/app
-
-        steps:
-          - name: Check out the repo
-
-            uses: actions/checkout@v3
-
-          - name: Running composer install
-
-            run: composer install --no-interaction --no-progress --prefer-dist
-
-          - name: Running psalm
-
-            run: ./vendor/bin/psalm 
