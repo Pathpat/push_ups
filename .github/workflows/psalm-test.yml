@@ -19,7 +19,7 @@ jobs:
         run: composer require --dev vimeo/psalm
 
       - name: Set execute permissions for Psalm
-         run: chmod +x vendor/bin/psalm
+        run: chmod +x vendor/bin/psalm
          
       - name: Run Psalm
         run: vendor/bin/psalm --show-info=true --no-cache --diff --shepherd
@@ -32,4 +32,5 @@ jobs:
           path: |
             ./psalm.xml
             ./psalm-errors.json
+
  
