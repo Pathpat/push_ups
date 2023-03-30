@@ -27,6 +27,6 @@ jobs:
         with:
           name: psalm-errors
           path: |
-            ./psalm-baseline.xml
+            ./psalm.xml
             ./psalm-errors.json
  
