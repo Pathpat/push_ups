@@ -15,7 +15,7 @@ jobs:
     container:
       image: composer:latest
       volumes:
-      - ${{github.workspace}}:/app
+        - ${{github.workspace}}:/app
     steps:
       - name: checkout the repo
         uses: actions/checkout@v2
