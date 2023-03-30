@@ -1,0 +1,16 @@
+{
+    "name": "patakias.c/push-ups",
+    "autoload": {
+        "psr-4": {
+            "PatakiasC\\PushUps\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "chris yo"
+        }
+    ],
+    "require-dev": {
+        "vimeo/psalm": "^5.9"
+    }
+}
