@@ -9,9 +9,19 @@ on:
       - 'main'
 
 jobs:
-  hello:
+  run-tests:
+    name: Run psalm tests
     runs-on: ubuntu-latest
-
+    container:
+      image: composer:latest
+      volumes:
+      - ${{github.workspace}}:/app
     steps:
-      - name: Hello step
-        run: echo "Hello World"
+      - name: checkout the repo
+        uses: actions/checkout@v2
+
+      - name: Running composer install  
+         run: composer install
+
+      - name: Running psalm 
+         run: ./vendor/bin/psalm
