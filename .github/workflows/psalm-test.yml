@@ -28,4 +28,4 @@ jobs:
 
           - name: Running psalm
 
-            run: ./vendor/bin/psalm
+            run: ./vendor/bin/psalm --init
