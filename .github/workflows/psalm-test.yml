@@ -1,27 +1,32 @@
-name: Hello github actions
+name: Psalm Test
 
-on:
-  push:
-    branches:
-      - 'main'
-  pull_request:
-    branches:
-      - 'main'
+on: push
 
 jobs:
-  run-tests:
-    name: Run psalm tests
+  psalm:
     runs-on: ubuntu-latest
-    container:
-      image: composer:latest
-      volumes:
-        - ${{github.workspace}}:/app
+
     steps:
-      - name: checkout the repo
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Running composer install  
-         run: composer install  
-         
-      - name: Running psalm 
-         run: ./vendor/bin/psalm  
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Install Psalm
+        run: composer require --dev vimeo/psalm
+
+      - name: Run Psalm
+        run: vendor/bin/psalm --show-info=true --no-cache --diff --shepherd
+
+      - name: Upload Psalm Errors
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: psalm-errors
+          path: |
+            ./psalm-baseline.xml
+            ./psalm-errors.json
+ 
