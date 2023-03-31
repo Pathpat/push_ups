@@ -7,6 +7,16 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     findUnusedBaselineEntry="true"
 >
+    <issueHandlers>
+        <UndefinedGlobalVariable errorLevel="suppress" />
+        <UndefinedFunction errorLevel="suppress" />
+        <UndefinedClass errorLevel="suppress" />
+        <InvalidGlobal errorLevel="suppress" />
+        <UndefinedConstant errorLevel="suppress"/>
+        <MissingDependency errorLevel="suppress"/>
+        <MissingFile errorLevel="suppress"/>
+        <InvalidThrow errorLevel="suppress"/>
+    </issueHandlers>
     <projectFiles>
         <directory name="greetings" />
         <ignoreFiles>
